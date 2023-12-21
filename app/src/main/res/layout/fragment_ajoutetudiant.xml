@@ -18,7 +18,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="-3dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="0dp">
 
         <LinearLayout
@@ -36,21 +36,21 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="554dp"
-                android:layout_marginTop="10dp"
+                android:layout_height="610dp"
+                android:layout_marginTop="0dp"
                 app:cardBackgroundColor="@color/whiteTextColor"
-                app:cardCornerRadius="10dp">
+                app:cardCornerRadius="20dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="596dp"
                     android:layout_margin="10dp"
                     android:orientation="vertical">
 
                     <TextView
                         style="@style/viewParent.headerText.NoMode"
                         android:layout_width="370dp"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
@@ -61,6 +61,13 @@
                         android:textColor="@color/black" />
 
 
+                    <ImageView
+                        android:id="@+id/cardImageView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="124dp"
+                        android:scaleType="fitStart"
+                        android:src="@drawable/logoblantype2" />
+
                     <EditText
                         android:id="@+id/editTextNom"
                         style="@style/modifiedEditText"
@@ -68,7 +75,9 @@
                         android:hint="Nom"
                         android:inputType="textPersonName"
                         android:maxLines="1"
-                        android:minHeight="48dp" />
+                        android:minHeight="48dp"
+                        android:padding="10dp"
+                        android:textSize="16dp" />
 
                     <!--                    <com.google.android.material.textfield.TextInputLayout-->
                     <!--                        android:id="@+id/textInputprenom"-->
@@ -80,9 +89,11 @@
                         style="@style/modifiedEditText"
                         android:backgroundTint="@color/black"
                         android:hint="Prénom"
-                        android:inputType="text"
+                        android:inputType="textPersonName"
                         android:maxLines="1"
-                        android:minHeight="48dp" />
+                        android:minHeight="48dp"
+                        android:padding="10dp"
+                        android:textSize="16dp" />
                     <!--                    </com.google.android.material.textfield.TextInputLayout>-->
 
                     <!--                    <com.google.android.material.textfield.TextInputLayout-->
@@ -98,7 +109,8 @@
                         android:hint="Courriel"
                         android:inputType="textEmailAddress"
                         android:maxLines="1"
-                        android:minHeight="48dp" />
+                        android:minHeight="48dp"
+                        android:textSize="16dp" />
 
                     <TextView
                         android:id="@+id/errorTextViewEmail"
@@ -106,8 +118,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="4dp"
+                        android:padding="10dp"
                         android:textColor="#FF0000"
-                        android:textSize="12sp"
+                        android:textSize="16dp"
                         android:visibility="gone" />
                     <!--                    </com.google.android.material.textfield.TextInputLayout>-->
 
@@ -125,7 +138,9 @@
                         android:hint="Mot de passe"
                         android:inputType="textPassword"
                         android:maxLines="1"
-                        android:minHeight="48dp" />
+                        android:minHeight="48dp"
+                        android:padding="10dp"
+                        android:textSize="16dp" />
 
                     <TextView
                         android:id="@+id/errorTextViewMDP1"
@@ -133,8 +148,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="4dp"
+                        android:padding="10dp"
                         android:textColor="#FF0000"
-                        android:textSize="12sp"
+                        android:textSize="16dp"
                         android:visibility="gone" />
 
                     <!--                    </com.google.android.material.textfield.TextInputLayout>-->
@@ -148,10 +164,11 @@
                         android:layout_marginTop="@dimen/loginViewsMargin"
                         android:backgroundTint="@color/black"
                         android:hint="Confirmer mot de passe"
-
                         android:inputType="textPassword"
                         android:maxLines="1"
-                        android:minHeight="48dp" />
+                        android:minHeight="48dp"
+                        android:padding="10dp"
+                        android:textSize="16dp" />
 
                     <TextView
                         android:id="@+id/errorTextViewMDP2"
@@ -211,27 +228,6 @@
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:gravity="center"
-                android:weightSum="12">
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="1dp"
-                    android:layout_weight="3"
-                    android:background="@color/whiteTextColor" />
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="1dp"
-                    android:layout_weight="3"
-                    android:background="@color/whiteTextColor" />
-
-            </LinearLayout>
 
 
         </LinearLayout>

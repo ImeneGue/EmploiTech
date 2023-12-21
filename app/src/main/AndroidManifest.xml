@@ -19,7 +19,8 @@
         android:theme="@style/Theme.StageTech"
         tools:targetApi="31"
         android:enableOnBackInvokedCallback="true"
-        android:usesCleartextTraffic="true" >
+        android:usesCleartextTraffic="true"
+        >
 
         <activity
             android:name=".MainActivity"
@@ -33,4 +34,10 @@
         </activity>
     </application>
     <uses-permission android:name="android.permission.INTERNET" />
-</manifest>
+
+
+
+
+
+
+    </manifest>
