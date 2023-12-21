@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/background_yellow_black" >
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scaleType="fitXY"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp"
+
+        android:background="@color/white">
+
+        <TextView
+            style="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
+            android:layout_width="336dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:text="Publier une offre de stage"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+
+        <EditText
+        android:id="@+id/NomStage"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:hint="Titre du stage " />
+
+
+    <EditText
+        android:id="@+id/NomEntreprise"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:hint="Nom de l'entreprise" />
+
+    <EditText
+        android:id="@+id/Localisation"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:hint="Localisation du stage" />
+
+    <EditText
+        android:id="@+id/Salaire"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:hint="Salaire du stage" />
+
+    <EditText
+        android:id="@+id/Description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="top|start"
+        android:hint="Description du stage"
+        android:inputType="textMultiLine"
+        android:lines="4">
+
+    </EditText>
+
+        <!--    <RadioGroup-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal">-->
+<!--        <RadioButton android:id="@+id/Àdistance"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="À distance"/>-->
+<!--        <RadioButton android:id="@+id/enprésence"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="en présence"/>-->
+<!--        <RadioButton android:id="@+id/Hybride"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Hybride"/>-->
+<!--    </RadioGroup>-->
+        <EditText
+            android:id="@+id/taches"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="top|start"
+            android:hint="Tâche à faire"
+            android:inputType="textMultiLine"
+            android:lines="4" />
+
+        <EditText
+            android:id="@+id/competences"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="top|start"
+            android:hint="Compétence "
+            android:inputType="textMultiLine"
+            android:lines="4" />
+
+        <EditText
+            android:id="@+id/modeStage"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="mode: (En personne ou à distance)" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnPublier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Publier"
+        android:background="@color/Red"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp" />
+
+    </LinearLayout>
+</ScrollView>
+
+</LinearLayout>

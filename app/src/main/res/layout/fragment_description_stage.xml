@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_yellow_black" >
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scaleType="fitXY"
+    android:padding="16dp"
+    android:layout_marginBottom="40dp">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:background="@color/white">
+
+
+        <TextView
+                android:id="@+id/idStage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/descriptionDuStage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="Description de stage"
+
+                android:textColor="@color/darkTextColor"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/titreStage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Titre de stage"
+                android:textColor="@color/darkTextColor"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/logoEntreprise"
+                android:layout_width="77dp"
+                android:layout_height="81dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/default_logo" />
+
+
+            <TextView
+                android:id="@+id/textViewEntrepriseNom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="nom de l'entreprise: "
+                android:textColor="@color/darkTextColor"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/nomEntreprise"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nom de l'entreprise: "
+                android:textColor="@color/darkTextColor"
+                android:textSize="20sp"
+                android:textStyle="italic" />
+
+            <TextView
+                android:id="@+id/textViewEntrepriseCourriel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="courriel de l'entreprise: "
+                android:textColor="@color/darkTextColor"
+
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/courrielEntreprise"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="courriel de l'entreprise: "
+                android:textColor="@color/darkTextColor"
+                android:textSize="20sp"
+                android:textStyle="italic" />
+
+
+            <TextView
+                android:id="@+id/textViewLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Location:"
+                android:textColor="@color/darkTextColor"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Location"
+                android:textColor="@color/darkTextColor"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textViewSalary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Salaire"
+                android:textColor="@color/darkTextColor"
+                android:textSize="20sp"
+
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/salaire"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="salaire:"
+                android:textColor="@color/darkTextColor"
+                android:textSize="18sp" />
+
+            <!-- Description -->
+            <TextView
+                android:id="@+id/textViewDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Description du stage: "
+                android:textColor="@color/darkTextColor"
+                android:textSize="20sp"
+                android:textStyle="bold"
+
+                />
+
+            <TextView
+                android:id="@+id/DescriptionPoste"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:lines="4"
+                android:text="Description du stage: "
+                android:textColor="@color/darkTextColor"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textViewTasks"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Tâches: "
+                android:textColor="@color/darkTextColor"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tachesAfaire"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:lines="3"
+                android:text="taches a faire: "
+                android:textColor="@color/darkTextColor"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textViewSkills"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Compétences: "
+                android:textColor="@color/darkTextColor"
+                android:textSize="20sp"
+
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/competences"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:lines="4"
+                android:text="Compétences"
+                android:textColor="@color/darkTextColor"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textViewMode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Stage en mode: "
+                android:textColor="@color/darkTextColor"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/modeStage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:lines="1"
+                android:text="Mode"
+                android:textColor="@color/darkTextColor"
+                android:textSize="18sp" />
+
+            <!--        <androidx.appcompat.widget.AppCompatButton-->
+            <!--            android:id="@+id/buttonPostuler"-->
+            <!--            android:layout_width="133dp"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:layout_marginTop="16dp"-->
+            <!--            android:background="@color/Red"-->
+            <!--            android:gravity="center"-->
+            <!--            android:text="Postuler"-->
+            <!--            android:textColor="@color/black"-->
+            <!--            android:textSize="18sp" />-->
+
+            <androidx.appcompat.widget.AppCompatButton
+
+                android:id="@+id/EnvoyerCourrielHR"
+                style="@style/loginButton"
+                android:layout_width="336dp"
+                android:layout_height="59dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/buttonbb"
+                android:gravity="center"
+                android:text="Envoyer courriel"
+                android:textColor="@color/whiteTextColor"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+</ScrollView>
+</LinearLayout>

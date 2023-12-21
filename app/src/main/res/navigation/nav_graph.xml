@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/accueilApp">
+
+    <fragment
+        android:id="@+id/vueÉtudiant"
+        android:name="com.example.stagetech.Étudiant.profile.Vue.VueÉtudiant"
+        android:label="fragment_profile_etudiant"
+        tools:layout="@layout/fragment_profile_etudiant" >
+        <action
+            android:id="@+id/action_vueÉtudiant_to_pageRechercheStageFragment"
+            app:destination="@id/pageRechercheStageFragment" />
+        <action
+            android:id="@+id/action_vueÉtudiant_to_ajoutÉtudiantFragment"
+            app:destination="@id/ajoutÉtudiantFragment" />
+        <action
+            android:id="@+id/action_vueÉtudiant_to_accueilApp"
+            app:destination="@id/accueilApp" />
+        <action
+            android:id="@+id/action_vueÉtudiant_pop"
+            app:popUpTo="@id/vueÉtudiant"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_vueÉtudiant_to_vueStagesSauvegardes"
+            app:destination="@id/vueStagesSauvegardes" />
+        <action
+            android:id="@+id/action_vueÉtudiant_to_seConnecterFragment"
+            app:destination="@id/seConnecterFragment" />
+
+        <action
+            android:id="@+id/action_vueÉtudiant_self"
+            app:destination="@id/vueÉtudiant" />
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/pageRechercheStageFragment"
+        android:name="com.example.stagetech.Stage.Modèle.RechercheStage.Vue.PageRechercheStageFragment"
+        android:label="fragment_page_recherche_stage"
+        tools:layout="@layout/fragment_page_recherche_stage" >
+        <action
+            android:id="@+id/action_pageRechercheStageFragment_to_DescriptionStageFragement"
+            app:destination="@id/DescriptionStageFragement" />
+        <action
+            android:id="@+id/action_pageRechercheStageFragment_pop"
+            app:popUpTo="@id/pageRechercheStageFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_pageRechercheStageFragment_to_vueÉtudiant"
+            app:destination="@id/vueÉtudiant" />
+        <action
+            android:id="@+id/action_pageRechercheStageFragment_to_accueilApp"
+            app:destination="@id/accueilApp" />
+        <action
+            android:id="@+id/action_pageRechercheStageFragment_to_vueStagesSauvegardes"
+            app:destination="@id/vueStagesSauvegardes" />
+        <action
+            android:id="@+id/action_pageRechercheStageFragment_to_seConnecterFragment"
+            app:destination="@id/seConnecterFragment" />
+
+        <action
+            android:id="@+id/action_pageRechercheStageFragment_self"
+            app:popUpTo="@id/pageRechercheStageFragment"
+            app:popUpToInclusive="true" />
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/DescriptionStageFragement"
+        android:name="com.example.stagetech.Stage.Modèle.DescriptionStage.Vue.DescriptionStageFragement"
+        android:label="fragment_description_stage"
+        tools:layout="@layout/fragment_description_stage" >
+        <action
+            android:id="@+id/action_DescriptionStageFragement_pop"
+            app:popUpTo="@id/DescriptionStageFragement"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_DescriptionStageFragement_to_pageRechercheStageFragment"
+            app:destination="@id/pageRechercheStageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/vueAjoutStage"
+        android:name="com.example.stagetech.Stage.Modèle.AjoutDeStage.VueAjoutStage"
+        android:label="VueAjoutStage" />
+    <fragment
+        android:id="@+id/ajoutÉtudiantFragment"
+        android:name="com.example.stagetech.Étudiant.CéerÉtudiant.Vue.AjoutÉtudiantFragment"
+        android:label="fragment_ajoutetudiant"
+        tools:layout="@layout/fragment_ajoutetudiant" >
+
+        <action
+            android:id="@+id/action_ajoutÉtudiantFragment_pop"
+            app:popUpTo="@id/ajoutÉtudiantFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_ajoutÉtudiantFragment_to_vueÉtudiant"
+            app:destination="@id/vueÉtudiant" />
+        <action
+            android:id="@+id/action_ajoutÉtudiantFragment_to_accueilApp"
+            app:destination="@id/accueilApp" />
+        <action
+            android:id="@+id/action_ajoutÉtudiantFragment_to_vueStagesSauvegardes"
+            app:destination="@id/vueStagesSauvegardes" />
+        <action
+            android:id="@+id/action_ajoutÉtudiantFragment_to_pageRechercheStageFragment"
+            app:destination="@id/pageRechercheStageFragment" />
+        <action
+            android:id="@+id/action_ajoutÉtudiantFragment_to_seConnecterFragment"
+            app:destination="@id/seConnecterFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/accueilApp"
+        android:name="com.example.stagetech.Étudiant.AccueilÉtudiant.accueilApp"
+        android:label="fragment_accueil_app"
+        tools:layout="@layout/fragment_accueil_app" >
+
+
+        <action
+            android:id="@+id/action_accueilApp_to_vueStagesSauvegardes"
+            app:destination="@id/vueStagesSauvegardes" />
+        <action
+            android:id="@+id/action_accueilApp_to_pageRechercheStageFragment"
+            app:destination="@id/pageRechercheStageFragment" />
+        <action
+            android:id="@+id/action_accueilApp_to_ajoutÉtudiantFragment"
+            app:destination="@id/ajoutÉtudiantFragment" />
+        <action
+            android:id="@+id/action_accueilApp_to_seConnecterFragment"
+            app:destination="@id/seConnecterFragment" />
+
+        <action
+            android:id="@+id/action_accueilApp_self"
+            app:destination="@id/accueilApp" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/vueStagesSauvegardes"
+        android:name="com.example.stagetech.Stage.Modèle.StageSauvegardees.VueStagesSauvegardes"
+        android:label="fragment_vue_stages_sauvegardes"
+        tools:layout="@layout/fragment_vue_stages_sauvegardes" >
+        <action
+            android:id="@+id/action_vueStagesSauvegardes_to_vueÉtudiant"
+            app:destination="@id/vueÉtudiant" />
+        <action
+            android:id="@+id/action_vueStagesSauvegardes_to_ajoutÉtudiantFragment"
+            app:destination="@id/ajoutÉtudiantFragment" />
+        <action
+            android:id="@+id/action_vueStagesSauvegardes_to_accueilApp"
+            app:destination="@id/accueilApp" />
+        <action
+            android:id="@+id/action_vueStagesSauvegardes_to_pageRechercheStageFragment"
+            app:destination="@id/pageRechercheStageFragment" />
+
+
+        <action
+            android:id="@+id/action_vueStagesSauvegardes_pop"
+            app:popUpTo="@id/vueStagesSauvegardes"
+            app:popUpToInclusive="true" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/ajoutEntreprise"
+        android:name="com.example.stagetech.Entreprise.AjoutEntreprise"
+        android:label="fragment_ajout_entreprise"
+        tools:layout="@layout/fragment_ajout_entreprise" />
+    <fragment
+        android:id="@+id/seConnecterFragment"
+        android:name="com.example.stagetech.Étudiant.SeConnecter.SeConnecterFragment"
+        android:label="fragment_se_connecter"
+        tools:layout="@layout/fragment_se_connecter" >
+        <action
+            android:id="@+id/action_seConnecterFragment_to_accueilApp"
+            app:destination="@id/accueilApp" />
+        <action
+            android:id="@+id/action_seConnecterFragment_to_vueÉtudiant"
+            app:destination="@id/vueÉtudiant" />
+        <action
+            android:id="@+id/action_seConnecterFragment_to_vueStagesSauvegardes"
+            app:destination="@id/vueStagesSauvegardes" />
+        <action
+            android:id="@+id/action_seConnecterFragment_to_ajoutÉtudiantFragment"
+            app:destination="@id/ajoutÉtudiantFragment" />
+        <action
+            android:id="@+id/action_seConnecterFragment_to_pageRechercheStageFragment"
+            app:destination="@id/pageRechercheStageFragment" />
+
+
+        <action
+            android:id="@+id/action_seConnecterFragment_pop"
+            app:popUpTo="@id/seConnecterFragment"
+            app:popUpToInclusive="true" />
+
+    </fragment>
+</navigation>

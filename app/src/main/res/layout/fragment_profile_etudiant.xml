@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/frameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@drawable/background_yellow_black"
+    android:focusableInTouchMode="true"
+    android:gravity="center"
+    android:scaleType="fitXY"
+    tools:context=".Étudiant.profile.Vue.VueÉtudiant">
+
+<FrameLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingBottom="56dp"
+    tools:ignore="MissingConstraints">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="384dp"
+        android:layout_height="669dp"
+        android:layout_margin="15dp"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="4dp"
+        app:contentPadding="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="357dp"
+                android:layout_height="147dp"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
+                    android:layout_width="336dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="30dp"
+                    android:text="Profile étudiant"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/editTextNom"
+                    style="@style/modifiedEditText"
+                    android:backgroundTint="@color/grey"
+                    android:hint="Nom"
+                    android:inputType="textPersonName"
+                    android:maxLines="1"
+                    android:minHeight="48dp"
+                    android:textColor="@color/darkTextColor"
+                    android:textSize="22dp" />
+
+
+                <EditText
+                    android:id="@+id/editTextprenom"
+                    style="@style/modifiedEditText"
+                    android:backgroundTint="@color/grey"
+                    android:hint="Prénom"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:minHeight="48dp"
+                    android:textColor="@color/darkTextColor"
+                    android:textSize="22dp" />
+
+                <EditText
+                    android:id="@+id/editTextEmail"
+                    style="@style/modifiedEditText"
+                    android:layout_marginTop="@dimen/loginViewsMargin"
+                    android:backgroundTint="@color/grey"
+                    android:hint="Courriel"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
+                    android:minHeight="48dp"
+                    android:textColor="@color/darkTextColor"
+                    android:textSize="22dp" />
+
+                <EditText
+                    android:id="@+id/editTextmotDePasse"
+                    style="@style/modifiedEditText"
+                    android:layout_marginTop="@dimen/loginViewsMargin"
+                    android:backgroundTint="@color/grey"
+                    android:hint="Mot de passe"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:minHeight="48dp"
+                    android:textColor="@color/darkTextColor"
+                    android:textSize="22dp" />
+
+                <EditText
+                    android:id="@+id/editTextLocalisation"
+                    style="@style/modifiedEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:backgroundTint="@color/grey"
+                    android:hint="Addresse"
+                    android:textColor="@color/darkTextColor"
+                    android:textSize="22dp" />
+
+                <EditText
+                    android:id="@+id/editTextcollege"
+                    style="@style/modifiedEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:backgroundTint="@color/grey"
+                    android:hint="Collège"
+                    android:textColor="@color/darkTextColor"
+                    android:textSize="22dp" />
+
+                <EditText
+                    android:id="@+id/editTextSpecialite"
+                    style="@style/modifiedEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:backgroundTint="@color/grey"
+                    android:hint="Spécialité"
+                    android:textColor="@color/darkTextColor"
+                    android:textSize="22dp" />
+
+                <EditText
+                    android:id="@+id/editTextdisponibilites"
+                    style="@style/modifiedEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:backgroundTint="@color/grey"
+                    android:hint="Disponibilité"
+                    android:textColor="@color/darkTextColor"
+                    android:textSize="22dp" />
+
+                <EditText
+                    android:id="@+id/editTextDescription"
+                    style="@style/modifiedEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:backgroundTint="@color/grey"
+                    android:gravity="top|start"
+                    android:hint="Description "
+                    android:inputType="textMultiLine"
+                    android:lines="3"
+                    android:textColor="@color/darkTextColor"
+                    android:textSize="22dp" />
+
+                <TextView
+                    style="@style/modifiedEditText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/grey"
+                    android:padding="15dp"
+                    android:text="CV: "
+                    android:textColor="@color/darkTextColor"
+                    android:textSize="22dp"></TextView>
+
+                <ImageView
+                    android:id="@+id/imageCv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/buttontelechargerCv"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="16dp"
+                    android:padding="15dp"
+                    android:visibility="gone" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/buttontelechargerCv"
+                    style="@style/loginButton"
+                    android:layout_width="161dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_margin="15dp"
+                    android:background="@drawable/buttonbb"
+                    android:backgroundTint="@color/darkTextColor"
+                    android:lineSpacingExtra="100dp"
+                    android:text="Telecharger Cv" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnmodifierProfile"
+                    style="@style/loginButton"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="15dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/buttonbb"
+                    android:text="Modifier profile"></androidx.appcompat.widget.AppCompatButton>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btndeconnecter"
+                    style="@style/loginButton"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="15dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/buttonbb"
+                    android:backgroundTint="@color/Red"
+                    android:text="deconnecter"></androidx.appcompat.widget.AppCompatButton>
+
+
+            </LinearLayout>
+        </ScrollView>
+    </androidx.cardview.widget.CardView>
+</FrameLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

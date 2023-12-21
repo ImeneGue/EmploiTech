@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Accueil"
+        android:id="@+id/accueilApp"
+        android:icon="@drawable/baseline_home_24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        />
+    <item android:title="@string/recherche_de_stage"
+        android:id="@+id/pageRechercheStageFragment"
+        android:icon="@drawable/baseline_find_in_page_24"/>
+
+    <item android:title="Mes stages"
+        android:id="@+id/vueStagesSauvegardes"
+        android:icon="@drawable/baseline_bookmark_added_24"/>
+
+<!--    <item android:title="Mes stages"-->
+<!--        android:id="@+id/VueStagesSauvegardes"-->
+<!--        android:id="@+id/VueStagesSauvegardes"-->
+<!--        android:icon="@drawable/baseline_bookmark_added_24"/> <item android:title="Mes stages"-->
+<!--        android:id="@+id/VueStagesSauvegardes"-->
+<!--        android:icon="@drawable/baseline_bookmark_added_24"/>-->
+<!--    <item android:title="Ajouter Étudiant"-->
+<!--        android:id="@+id/ajoutÉtudiantFragment"-->
+<!--        android:icon="@drawable/baseline_bookmark_added_24"/>-->
+    <item android:title="Profile"
+        android:id="@+id/vueÉtudiant"
+        android:icon="@drawable/baseline_account_circle_24"/>
+<!--    <item android:title="Autres"-->
+<!--        android:id="@+id/VueStagesSauvegardes2"-->
+<!--        android:icon="@drawable/baseline_folder_24"/>-->
+
+</menu>

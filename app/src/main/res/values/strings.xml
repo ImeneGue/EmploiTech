@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">StageTech</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="nom_de_l_entreprise"> nom de l\'entreprise du stage</string>
+    <string name="example_description"> description du stage</string>
+    <string name="recherche_de_stage">Recherche de stage</string>
+    <string name="introApp">"EmploiTech est une plateforme qui aide les étudiants d’informatique à trouver un stage dans le domaine de TI "</string>
+</resources>
