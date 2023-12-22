@@ -48,47 +48,6 @@ class ÉtudiantRepository (private val serviceApi: Api, private val context: Con
     }
 
 
-
-//    suspend fun seConnecter2(courriel: String, motDePasse: String): Étudiant? {
-//        try {
-//            val response = serviceApi.seConnecter(courriel, motDePasse)
-//
-//            if (response.isSuccessful) {
-//                val etudiant = response.body()
-//                etudiant?.etudioant?.idEtudiant?.let {
-//                    //etudiant?.let {
-//                    //session.idEtudiant = it.idEtudiant
-//                    session.idEtudiant = it
-//                }
-//                return etudiant
-//            }
-//        } catch (e: Exception) {
-//
-//        }
-//        return null
-//    }
-
-// suspend fun getÉtudiantsDeApiParId(id:Int): Étudiant? {
-//
-//    try {
-//        val étudiantDeMonApi = serviceApi.getEtudiantParId(id)
-//        if (étudiantDeMonApi != null) {
-//            étudiantDeMonApi?.idEtudiant?.let {
-//
-//                if (session != null){
-//                    session.idEtudiant = it}
-//                Log.e("Repository", "API Error" )
-//            }
-//            return étudiantDeMonApi
-//        }else {
-//            Log.e("Repository", "API Error" )
-//        }
-//    } catch (e: Exception) {
-//        e.printStackTrace()
-//    }
-//    return null
-//
-//}
     suspend fun getÉtudiantsDeApiParId3(id:Int): ÉtudiantResponse? {
 
         try {

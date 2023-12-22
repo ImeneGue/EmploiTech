@@ -21,10 +21,9 @@ import com.example.stagetech.sourceDeDonnées.SQLiteHelper.stages.COLUMN_TITRE_S
 import com.example.stagetech.sourceDeDonnées.ServiceApi.Api
 
 
-class StageRepository (private val serviceApi: Api, private val context: Context){
+class StageRepository(private val serviceApi: Api, private val context: Context) {
 
-
-        private val dbHelper = SQLiteHelper(context)
+    private val dbHelper = SQLiteHelper(context)
 
 
     suspend fun getStages(): List<Stage> {
@@ -35,7 +34,7 @@ class StageRepository (private val serviceApi: Api, private val context: Context
         return stageDeMonApi
     }
 
-     suspend fun addEtudiant(etudiant: Étudiant): Boolean {
+    suspend fun addEtudiant(etudiant: Étudiant): Boolean {
         return try {
             serviceApi.ajouterEtudiant(etudiant)
             true
@@ -49,16 +48,20 @@ class StageRepository (private val serviceApi: Api, private val context: Context
         ajouterStageBDLocal(stageDeMonApi)
         return stageDeMonApi
     }
+
     suspend fun SauvegarderStageLocallement(id: Int): Stage {
         val stageDeMonApi = serviceApi.getStageParId(id)
         ajouterStageBDLocal(stageDeMonApi)
         return stageDeMonApi
     }
+
     suspend fun AjouterStageBDLocalParId(idStage: Int, idEtudiant: Int): Stage {
         val stageDeMonApi = serviceApi.getStageParId(idStage)
+        val etudiant = serviceApi.getEtudiantParId2(idEtudiant)
         ajouterStageBDLocal(stageDeMonApi)
         return stageDeMonApi
     }
+
     suspend fun getStagesByTitre(titre: String): List<Stage> {
         return serviceApi.getStageParTitreStage(titre)
     }
@@ -66,6 +69,17 @@ class StageRepository (private val serviceApi: Api, private val context: Context
     suspend fun getStagesByNomEntreprise(nomEntreprise: String): List<Stage> {
         return serviceApi.getStageParNomEntreprise(nomEntreprise)
     }
+
+    fun supprimerStageParId(idStage: Int): Boolean {
+        val db = dbHelper.writableDatabase
+        val valeur = "$COLUMN_ID = ?"
+        val args = arrayOf(idStage.toString())
+        val rowsDeleted = db.delete(SQLiteHelper.stages.TABLE_NAME, valeur, args)
+        db.close()
+        return rowsDeleted > 0
+    }
+
+
     fun ajouterStageBDLocal(stage: Stage) {
         val db = dbHelper.writableDatabase
         val values = ContentValues().apply {
@@ -85,7 +99,7 @@ class StageRepository (private val serviceApi: Api, private val context: Context
         db.insert("stages", null, values)
         db.close()
 
-}
+    }
 
 
     fun imagedeLentreprise(nomEntreprise: String): Int {
@@ -99,9 +113,8 @@ class StageRepository (private val serviceApi: Api, private val context: Context
             "desjardins" -> R.drawable.samsung
             "rbc" -> R.drawable.samsung
             else -> R.drawable.default_logo
-        }}
-
-
+        }
+    }
 
 
     fun voirTousLesStagesBDLocal(): List<Stage> {
@@ -153,6 +166,7 @@ class StageRepository (private val serviceApi: Api, private val context: Context
 
         return stages
     }
+
     fun getAllStagesBDLocal(): List<Stage> {
         val stages = mutableListOf<Stage>()
         val cursor = dbHelper.readableDatabase.query("stages", null, null, null, null, null, null)
@@ -164,6 +178,7 @@ class StageRepository (private val serviceApi: Api, private val context: Context
         cursor.close()
         return stages
     }
+
     fun searchStagesByTitleBDLocal(title: String): List<Stage> {
         val stages = mutableListOf<Stage>()
         val cursor = dbHelper.readableDatabase.query(
@@ -221,7 +236,7 @@ class StageRepository (private val serviceApi: Api, private val context: Context
         )
     }
 
-     fun getStageByIdBDLocal(stageId: Int?): Stage {
+    fun getStageByIdBDLocal(stageId: Int?): Stage {
 
         val db = dbHelper.readableDatabase
         var stage: Stage? = null
@@ -238,14 +253,14 @@ class StageRepository (private val serviceApi: Api, private val context: Context
             "taches",
             "competences",
             "modeStage"
-            // Add more fields as needed
+
         )
 
         val selection = "idStage = ?"
         val selectionArgs = arrayOf(stageId.toString())
 
         val cursor = db.query(
-            "stages",  // Replace with your table name
+            "stages",
             projection,
             selection,
             selectionArgs,

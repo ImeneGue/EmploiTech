@@ -49,7 +49,6 @@ class VueÉtudiant : Fragment(), IÉtudiantPrésentateur.Vue {
     private lateinit var description: EditText
     private lateinit var cv: EditText
     private lateinit var buttontelechargerCv: Button
-//    val PICK_IMAGE_REQUEST = 1
 
 
     override fun onCreateView(
@@ -122,27 +121,13 @@ class VueÉtudiant : Fragment(), IÉtudiantPrésentateur.Vue {
                         }
                     }
 
-//                                        buttontelechargerCv.setOnClickListener {
-//
-//
-//
-//                                            val intent = Intent(Intent.ACTION_GET_CONTENT)
-//                                            intent.type = "image/*"
-//                                            startActivityForResult(intent, PICK_IMAGE_REQUEST)
-////                                            if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.data != null) {
-//                                                val imageUri: Uri = data.data!!
-//
-//                                                cv.setImageURI(imageUri)
-////                                            }
-//                    }
-
             }catch (e: Exception) {
                 Log.e("vueEtudiant", "Erreur d'avoir etudiant de l'api", e)
             }}
         }
 
         btnDeconnecter.setOnClickListener {
-            affichermessageErreur("merci! au revoir")
+            affichermessageSucces("merci! au revoir")
             session.fermerLaSession()
             navControlleur.navigate(R.id.action_vueÉtudiant_to_accueilApp)
         }
@@ -168,7 +153,6 @@ class VueÉtudiant : Fragment(), IÉtudiantPrésentateur.Vue {
        etudiant?.specialite = specialite.text.toString()
        etudiant?.disponibilite = disponibilite.text.toString()
        etudiant?.description = description.text.toString()
-       //etudiant?.nom = nom.text.toString()
         }
 
 
@@ -212,12 +196,6 @@ class VueÉtudiant : Fragment(), IÉtudiantPrésentateur.Vue {
                 requireActivity().finish()
             }
         }
-
-
-
-//        if (!findNavController().navigateUp()) {
-//            requireActivity().finish()
-//        }
     }
 
 }

@@ -27,7 +27,6 @@ class TrouverStagePrésentateur (private val vue : ITrouverStagePresentateur.vue
             try {
                 val stages = repository.getStages()
                 vue.afficherListeStages(stages)
-
             }
 
          catch (e: HttpException) {
@@ -37,9 +36,7 @@ class TrouverStagePrésentateur (private val vue : ITrouverStagePresentateur.vue
             }
         }finally {
                 withContext(Dispatchers.Main) {
-                    Log.d(TAG, "Hiding loading indicator...")
                     vue.cacherChargement()
-                    Log.d(TAG, "Loading indicator hidden.")
                 }
             }
         }
@@ -97,6 +94,7 @@ class TrouverStagePrésentateur (private val vue : ITrouverStagePresentateur.vue
 
     override fun SauvegarderStageLocallement(stage: Stage) {
         try {
+
         repository.ajouterStageBDLocal(stage)
 
             vue.SauvegarderStageLocallement(stage)
@@ -110,4 +108,30 @@ class TrouverStagePrésentateur (private val vue : ITrouverStagePresentateur.vue
         }
 
         }
+
+    override suspend fun SauvegarderStageLocallementParid(stageId: Int) {
+        vue.afficherChargement()
+        CoroutineScope(Dispatchers.Main).launch {
+            try {
+                if (repository.getStageByIdBDLocal(stageId) != null) {
+                    val stage = repository.getStageById(stageId)
+                    repository.ajouterStageBDLocal(stage)
+                    vue.afficherToast("Stage enregistré")
+
+                } else {
+                    repository.supprimerStageParId(stageId)
+                    vue.afficherToast("Stage supprimé")
+                }
+
+            } catch (e: Exception) {
+                vue.affichermessageErreur(e.message ?: "Stage est déjà sauvegardé !")
+
+            } finally {
+                vue.cacherChargement()
+            }
+        }
+
+    }
+
+
 }

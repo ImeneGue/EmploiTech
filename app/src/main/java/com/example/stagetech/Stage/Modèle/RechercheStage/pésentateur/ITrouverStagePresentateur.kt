@@ -33,6 +33,9 @@ interface vue {
         fun affichermessageSauvegardeSucces() {
         }
 
+        fun supprimerStageParId(stageId: Int)
+         fun afficherToast(s: String)
+
 
 }
         interface présentateur {
@@ -48,6 +51,7 @@ interface vue {
                 fun trouverStageParNomEntreprise(nomEntreprise: String)
 
                 fun SauvegarderStageLocallement(stage: Stage)
+                suspend fun SauvegarderStageLocallementParid(stageId: Int)
         }
 
 

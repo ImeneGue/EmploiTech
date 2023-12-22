@@ -82,7 +82,6 @@ class AjoutÉtudiantFragment : Fragment(), IÉtudiant.Vue {
             job?.cancel()
 
             job = lifecycleScope.launch {
-               // delay(500)
             creerCompte(
                 nom.text.toString(),
                 prenom.text.toString(),
@@ -173,7 +172,6 @@ class AjoutÉtudiantFragment : Fragment(), IÉtudiant.Vue {
         })
 
         motDePasse1.addTextChangedListener(object : TextWatcher {
-
             var job: Job? = null
             override fun afterTextChanged(s: Editable?) {
                 job?.cancel()
@@ -192,7 +190,6 @@ class AjoutÉtudiantFragment : Fragment(), IÉtudiant.Vue {
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-                // No action needed
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
@@ -220,7 +217,6 @@ class AjoutÉtudiantFragment : Fragment(), IÉtudiant.Vue {
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-                // No action needed
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
@@ -380,7 +376,7 @@ class AjoutÉtudiantFragment : Fragment(), IÉtudiant.Vue {
         AlertDialog.Builder(requireContext())
             .setTitle("Succès")
             .setMessage("Création de compte avec succès!")
-            .setPositiveButton("OK", null)
+            .setPositiveButton("Se connecter", null)
             .show()
     }
 

@@ -139,7 +139,7 @@
     </fragment>
     <fragment
         android:id="@+id/vueStagesSauvegardes"
-        android:name="com.example.stagetech.Stage.Modèle.StageSauvegardees.VueStagesSauvegardes"
+        android:name="com.example.stagetech.Stage.Modèle.StageSauvegardees.Vue.VueStagesSauvegardes"
         android:label="fragment_vue_stages_sauvegardes"
         tools:layout="@layout/fragment_vue_stages_sauvegardes" >
         <action

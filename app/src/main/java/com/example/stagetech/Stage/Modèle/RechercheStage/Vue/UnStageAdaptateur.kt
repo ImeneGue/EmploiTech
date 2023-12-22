@@ -3,19 +3,15 @@ package com.example.stagetech.Stage.Modèle.RechercheStage.Vue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
-import android.widget.Button
 import android.widget.Filter
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.stagetech.Stage.Modèle.RechercheStage.Modèle.Stage
 import com.example.stagetech.R
-import com.example.stagetech.Stage.Modèle.RechercheStage.pésentateur.ITrouverStagePresentateur
-import com.example.stagetech.sourceDeDonnées.StageRepository
+import com.example.stagetech.Stage.Modèle.RechercheStage.pésentateur.TrouverStagePrésentateur
 import java.util.Locale
 
 class UnStageAdaptateur(
@@ -36,7 +32,6 @@ class UnStageAdaptateur(
         val address: TextView = itemView.findViewById(R.id.address)
         val modeStage: TextView = itemView.findViewById(R.id.modeStage)
 
-        //var enregistrerStage_btn: Button = itemView.findViewById(R.id.enregistrerStage_btn)
         val enregistrerStage_btn: ImageButton = itemView.findViewById(R.id.enregistrerStage_btn)
         init {
             itemView.setOnClickListener {
@@ -77,11 +72,12 @@ class UnStageAdaptateur(
         holder.address.text = list_stages[position].localisation
         holder.modeStage.text = list_stages[position].modeStage
 
-        changerImage(holder.enregistrerStage_btn, estSauvgardee(holder.enregistrerStage_btn))
+       // changerImage(holder.enregistrerStage_btn, estSauvgardee(holder.enregistrerStage_btn))
 
         holder.enregistrerStage_btn.setOnClickListener {
             onButtonClickListener.invoke(stage)
-            changerImage(holder.enregistrerStage_btn,estSauvgardee(holder.enregistrerStage_btn))
+            changerImage(holder.enregistrerStage_btn)
+//            changerImage(holder.enregistrerStage_btn,estSauvgardee(holder.enregistrerStage_btn))
         }
 
     }
@@ -99,27 +95,16 @@ class UnStageAdaptateur(
             else -> R.drawable.default_logo
         }}
 
-    private fun changerImage(image: ImageButton, sauvegardee: Boolean) {
-        val drawableResId = if (sauvegardee) {
-            R.drawable.baseline_bookmark_added_24
-
-        } else {
-            R.drawable.enregistrericon
-        }
+    private fun changerImage(image: ImageButton) {
+        val drawableResId = R.drawable.enregistrericon
         image.setBackgroundResource(drawableResId)
-//        val message = if (sauvegardee) {
-//            "Stage supprimé "
-//        } else {
-//            "Stage sauvegardé"
-//        }
-//        Toast.makeText(image.context, message, Toast.LENGTH_SHORT).show()
     }
-    fun estSauvgardee(image: ImageButton): Boolean {
-
-        val savedDrawableResId = R.drawable.enregistrericon
-        return image.background.constantState?.let { it == ContextCompat.getDrawable(image.context, savedDrawableResId)?.constantState } ?: true
-
-    }
+//    private fun estSauvgardee(image: ImageButton): Boolean {
+//
+//        val savedDrawableResId = R.drawable.enregistrericon
+//        return image.background.constantState?.let { it == ContextCompat.getDrawable(image.context, savedDrawableResId)?.constantState } ?: true
+//
+//    }
     override fun getItemCount(): Int {
         return list_stages.size
     }

@@ -1,18 +1,15 @@
-package com.example.stagetech.Stage.Modèle.RechercheStage.Vue
+package com.example.stagetech.Stage.Modèle.StageSauvegardees.Vue
 
 import android.app.AlertDialog
 import android.app.Dialog
 import android.os.Bundle
-import android.util.Log
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
-import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
-import androidx.appcompat.widget.SearchView
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
@@ -21,100 +18,77 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.stagetech.R
 import com.example.stagetech.Stage.Modèle.RechercheStage.Modèle.Stage
-import com.example.stagetech.Stage.Modèle.RechercheStage.pésentateur.ITrouverStagePresentateur
+import com.example.stagetech.Stage.Modèle.RechercheStage.Vue.UnStageAdaptateur
 import com.example.stagetech.Stage.Modèle.RechercheStage.pésentateur.TrouverStagePrésentateur
+import com.example.stagetech.Stage.Modèle.StageSauvegardees.Présentateur.IstageEnregistréContrat
+import com.example.stagetech.Stage.Modèle.StageSauvegardees.Présentateur.StageEnregistréPrésentateur
 import com.example.stagetech.sourceDeDonnées.ServiceApi.Retrofit
 import com.example.stagetech.sourceDeDonnées.StageRepository
-import com.example.stagetech.Étudiant.Session
 import kotlinx.coroutines.launch
 
+class VueStagesSauvegardes : Fragment(), IstageEnregistréContrat.vue {
 
-class PageRechercheStageFragment : Fragment(), ITrouverStagePresentateur.vue {
+    private lateinit var recyclerView2: RecyclerView
+    private lateinit var savedStagesAdapter: StageEntregistréApadter
+    private lateinit var navControlleur: NavController
+    private lateinit var présentateur: IstageEnregistréContrat.Présentateur
+    private lateinit var dialog: Dialog
 
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var searchView: SearchView
-    private lateinit var adaptateur: UnStageAdaptateur
-    lateinit var navControlleur: NavController
-    private lateinit var présentateur: ITrouverStagePresentateur.présentateur
-    lateinit var dialog: Dialog
-    private lateinit var session: Session
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+
+        val callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                navigateUpOrCustomLogic()
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(this, callback)
+        }
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val view = inflater.inflate(R.layout.fragment_vue_stages_sauvegardes, container, false)
 
-        val view = inflater.inflate(R.layout.fragment_page_recherche_stage, container, false)
 
         val stageRepository = StageRepository(Retrofit.serviceApi, requireContext())
-        présentateur = TrouverStagePrésentateur(this, stageRepository)
-
-
-        recyclerView = view.findViewById(R.id.recyclerView)
-        searchView = view.findViewById(R.id.searchView)
+        présentateur = StageEnregistréPrésentateur(this, stageRepository)
+        recyclerView2 = view.findViewById(R.id.recyclerView2)
         dialog = Dialog(requireActivity())
-        voirTousLesStages()
-        présentateur.afficherTousLesStages()
+        présentateur.afficherTousLesStagesDeBDLocal()
 
 
-        adaptateur = UnStageAdaptateur(emptyList(), onItemClick = { stageSelectione ->
+        savedStagesAdapter = StageEntregistréApadter(emptyList(), onItemClick = { stageSelectione ->
             afficherDetailsStage(stageSelectione)
 
         }, onButtonClickListener = { stage ->
 
             lifecycleScope.launch {
-                (présentateur as TrouverStagePrésentateur).SauvegarderStageLocallementParid(stage.idStage!!)
+                présentateur.supprimerStageParId(stage.idStage!!)
 
             }
         })
 
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        recyclerView.adapter = adaptateur
+        recyclerView2.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView2.adapter = savedStagesAdapter
 
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String): Boolean {
-                return false
-            }
 
-            override fun onQueryTextChange(titreStgeATrouver: String?): Boolean {
-                présentateur.trouverStageParTitreStage(titreStgeATrouver.orEmpty())
-                return true
-            }
-        })
-        voirTousLesStages()
-        présentateur.afficherTousLesStages()
 
         setupOnBackPressedCallback()
-
-
-
         return view
     }
 
-    override
-    fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        navControlleur = Navigation.findNavController(view)
-
-    }
-
-
     override fun afficherListeStages(listeStages: List<Stage>) {
-        adaptateur.updateData(listeStages)
+        savedStagesAdapter.updateData(listeStages)
     }
 
 
     override fun afficherDetails(stageId: Int) {
         présentateur.stageSelectionné(stageId)
-    }
-
-
-    override fun voirTousLesStages() {
-        présentateur.afficherTousLesStages()
-
-    }
-
-    override fun showFilteredStages(stages: List<Stage>) {
-        adaptateur.updateData(stages)
     }
 
 
@@ -133,7 +107,6 @@ class PageRechercheStageFragment : Fragment(), ITrouverStagePresentateur.vue {
         présentateur.stageSelectionné(stageId)
     }
 
-
     override fun affichermessageErreur(message: String) {
         AlertDialog.Builder(requireContext())
             .setTitle("Erreur")
@@ -147,8 +120,7 @@ class PageRechercheStageFragment : Fragment(), ITrouverStagePresentateur.vue {
     }
 
     override fun supprimerStageParId(stageId: Int) {
-        TODO("Not yet implemented")
-    }
+        présentateur.supprimerStageParId(stageId)    }
 
     override fun affichermessageSucces() {
         AlertDialog.Builder(requireContext())
@@ -163,6 +135,13 @@ class PageRechercheStageFragment : Fragment(), ITrouverStagePresentateur.vue {
         Toast.makeText(requireContext(), s, Toast.LENGTH_SHORT).show()
 
     }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        navControlleur = Navigation.findNavController(view)
+    }
+
+
+
 
     override fun cacherChargement() {
         if (dialog != null && dialog.isShowing) {
@@ -181,6 +160,7 @@ class PageRechercheStageFragment : Fragment(), ITrouverStagePresentateur.vue {
         }
     }
 
+
     private fun setupOnBackPressedCallback() {
         val callback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
@@ -190,13 +170,9 @@ class PageRechercheStageFragment : Fragment(), ITrouverStagePresentateur.vue {
         }
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
     }
-
     private fun navigateUpOrCustomLogic() {
-        navControlleur = findNavController()
         if (!findNavController().navigateUp()) {
             requireActivity().finish()
         }
     }
 }
-
-
