@@ -34,6 +34,7 @@ interface IstageEnregistréContrat {
         fun affichermessageSucces()
         fun affichermessageSauvegardeSucces()
         fun supprimerStageParId(stageId: Int)
+        fun voirTousLesStages()
     }
 
 

@@ -31,7 +31,6 @@ class UnStageAdaptateur(
         val nomEntreprise: TextView = itemView.findViewById(R.id.nomEntreprise)
         val address: TextView = itemView.findViewById(R.id.address)
         val modeStage: TextView = itemView.findViewById(R.id.modeStage)
-
         val enregistrerStage_btn: ImageButton = itemView.findViewById(R.id.enregistrerStage_btn)
         init {
             itemView.setOnClickListener {
@@ -72,12 +71,14 @@ class UnStageAdaptateur(
         holder.address.text = list_stages[position].localisation
         holder.modeStage.text = list_stages[position].modeStage
 
-       // changerImage(holder.enregistrerStage_btn, estSauvgardee(holder.enregistrerStage_btn))
+
+         changerImage(holder.enregistrerStage_btn, estSauvgardee(holder.enregistrerStage_btn))
 
         holder.enregistrerStage_btn.setOnClickListener {
             onButtonClickListener.invoke(stage)
-            changerImage(holder.enregistrerStage_btn)
-//            changerImage(holder.enregistrerStage_btn,estSauvgardee(holder.enregistrerStage_btn))
+            //SauvegarderStageLocallementParid(stage.idStage)
+//            changerImage(holder.enregistrerStage_btn)
+            changerImage(holder.enregistrerStage_btn,estSauvgardee(holder.enregistrerStage_btn))
         }
 
     }
@@ -95,16 +96,22 @@ class UnStageAdaptateur(
             else -> R.drawable.default_logo
         }}
 
-    private fun changerImage(image: ImageButton) {
-        val drawableResId = R.drawable.enregistrericon
+    private fun changerImage(image: ImageButton,sauvegardee: Boolean) {
+        val drawableResId = if (sauvegardee) {
+            R.drawable.baseline_bookmark_added_24
+
+        } else {
+            R.drawable.enregistrericon
+        }
         image.setBackgroundResource(drawableResId)
+
     }
-//    private fun estSauvgardee(image: ImageButton): Boolean {
-//
-//        val savedDrawableResId = R.drawable.enregistrericon
-//        return image.background.constantState?.let { it == ContextCompat.getDrawable(image.context, savedDrawableResId)?.constantState } ?: true
-//
-//    }
+    private fun estSauvgardee(image: ImageButton): Boolean {
+
+        val savedDrawableResId = R.drawable.enregistrericon
+        return image.background.constantState?.let { it == ContextCompat.getDrawable(image.context, savedDrawableResId)?.constantState } ?: true
+
+    }
     override fun getItemCount(): Int {
         return list_stages.size
     }

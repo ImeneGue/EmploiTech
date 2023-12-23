@@ -18,7 +18,7 @@ class StageEnregistréPrésentateur (private val vue : IstageEnregistréContrat.
         vue.afficherChargement()
         CoroutineScope(Dispatchers.Main).launch {
             try {
-                val stages = repository.voirTousLesStagesBDLocal()
+                val stages = repository.getAllStagesBDLocal()
                 vue.afficherListeStages(stages)
             }
 

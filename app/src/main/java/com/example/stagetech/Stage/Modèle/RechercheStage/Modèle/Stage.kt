@@ -1,7 +1,5 @@
 package com.example.stagetech.Stage.Modèle.RechercheStage.Modèle
 
-import com.example.stagetech.Entité.Entreprise
-
 data class Stage (
     val idStage: Int?,
     val titreStage: String,

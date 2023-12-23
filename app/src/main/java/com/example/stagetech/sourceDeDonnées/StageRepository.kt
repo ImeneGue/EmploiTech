@@ -277,4 +277,15 @@ class StageRepository(private val serviceApi: Api, private val context: Context)
 
         return stage!!
     }
+
+    fun stagesauvegardé(stageId: String): Boolean {
+        val db = dbHelper.readableDatabase
+        val query = "SELECT * FROM stages WHERE idStage = ?"
+        val cursor = db.rawQuery(query, arrayOf(stageId))
+        val stagesauvegardé = cursor.count > 0
+        cursor.close()
+        db.close()
+        return stagesauvegardé
+    }
+
 }

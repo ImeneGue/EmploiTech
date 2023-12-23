@@ -18,7 +18,6 @@ class TrouverStagePrésentateur (private val vue : ITrouverStagePresentateur.vue
                                 private val repository: StageRepository,
                                 ): ITrouverStagePresentateur.présentateur {
 
-    //private val repository: StageRepository,
 
 
     override fun afficherTousLesStages() {
@@ -114,13 +113,11 @@ class TrouverStagePrésentateur (private val vue : ITrouverStagePresentateur.vue
         CoroutineScope(Dispatchers.Main).launch {
             try {
                 if (repository.getStageByIdBDLocal(stageId) != null) {
+                    vue.afficherToast("Stage est déjà sauvegardé !")
+                } else {
                     val stage = repository.getStageById(stageId)
                     repository.ajouterStageBDLocal(stage)
                     vue.afficherToast("Stage enregistré")
-
-                } else {
-                    repository.supprimerStageParId(stageId)
-                    vue.afficherToast("Stage supprimé")
                 }
 
             } catch (e: Exception) {

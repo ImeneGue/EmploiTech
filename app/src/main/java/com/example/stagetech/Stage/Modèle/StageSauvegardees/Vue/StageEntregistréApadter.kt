@@ -14,16 +14,17 @@ class StageEntregistréApadter(private var list_stages: List<Stage>,
                               private val onItemClick: (Stage) -> Unit,
                               private val onButtonClickListener: (Stage) -> Unit
 ) :
-    RecyclerView.Adapter<StageEntregistréApadter.StageViewHolder2>() {
+    RecyclerView.Adapter<StageEntregistréApadter.StageViewHolder>() {
 
     private var stages: List<Stage> = emptyList()
 
-    inner class StageViewHolder2(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val logoEntreprise: ImageView = itemView.findViewById(R.id.logoEntreprise2)
-        val titreStage: TextView = itemView.findViewById(R.id.titreStage2)
-        val nomEntreprise: TextView = itemView.findViewById(R.id.nomEntreprise2)
-        val address: TextView = itemView.findViewById(R.id.address2)
-        val modeStage: TextView = itemView.findViewById(R.id.modeStage2)
+    inner class StageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
+        val logoEntreprise2: ImageView = itemView.findViewById(R.id.logoEntreprise2)
+        val titreStage2: TextView = itemView.findViewById(R.id.titreStage2)
+        val nomEntreprise2: TextView = itemView.findViewById(R.id.nomEntreprise2)
+        val address2: TextView = itemView.findViewById(R.id.address2)
+        val modeStage2: TextView = itemView.findViewById(R.id.modeStage2)
 
         val supprimerStage_btn: ImageButton = itemView.findViewById(R.id.supprimerStage_btn)
         init {
@@ -46,23 +47,23 @@ class StageEntregistréApadter(private var list_stages: List<Stage>,
 
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StageEntregistréApadter.StageViewHolder2 {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StageEntregistréApadter.StageViewHolder {
         val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.un_stage_item, parent, false)
-        return StageViewHolder2(view)
+            LayoutInflater.from(parent.context).inflate(R.layout.unstagesauvegarde_item, parent, false)
+        return StageViewHolder(view)
     }
 
 
-    override fun onBindViewHolder(holder: StageViewHolder2, position: Int) {
+    override fun onBindViewHolder(holder: StageViewHolder, position: Int) {
 
         val stage = list_stages[position]
 
 
-        holder.logoEntreprise.setImageResource(imagedeLentreprise(stage.nomEntreprise))
-        holder.titreStage.text = list_stages[position].titreStage
-        holder.nomEntreprise.text = list_stages[position].nomEntreprise
-        holder.address.text = list_stages[position].localisation
-        holder.modeStage.text = list_stages[position].modeStage
+        holder.logoEntreprise2.setImageResource(imagedeLentreprise(stage.nomEntreprise))
+        holder.titreStage2.text = list_stages[position].titreStage
+        holder.nomEntreprise2.text = list_stages[position].nomEntreprise
+        holder.address2.text = list_stages[position].localisation
+        holder.modeStage2.text = list_stages[position].modeStage
 
         holder.supprimerStage_btn.setOnClickListener {
             onButtonClickListener.invoke(stage)

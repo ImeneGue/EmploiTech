@@ -1,7 +1,5 @@
 package com.example.stagetech.Stage.Modèle.AjoutDeStage
 
-import com.example.stagetech.Entité.Entreprise
-import com.example.stagetech.Entité.Étudiant
 import com.example.stagetech.Stage.Modèle.RechercheStage.Modèle.Stage
 
 interface IContratVPAjoutStage {

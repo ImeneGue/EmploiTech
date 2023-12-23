@@ -33,6 +33,7 @@ class VueStagesSauvegardes : Fragment(), IstageEnregistréContrat.vue {
     private lateinit var navControlleur: NavController
     private lateinit var présentateur: IstageEnregistréContrat.Présentateur
     private lateinit var dialog: Dialog
+     lateinit var stages : List<Stage>
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,7 +60,8 @@ class VueStagesSauvegardes : Fragment(), IstageEnregistréContrat.vue {
         présentateur = StageEnregistréPrésentateur(this, stageRepository)
         recyclerView2 = view.findViewById(R.id.recyclerView2)
         dialog = Dialog(requireActivity())
-        présentateur.afficherTousLesStagesDeBDLocal()
+
+        voirTousLesStages()
 
 
         savedStagesAdapter = StageEntregistréApadter(emptyList(), onItemClick = { stageSelectione ->
@@ -69,13 +71,16 @@ class VueStagesSauvegardes : Fragment(), IstageEnregistréContrat.vue {
 
             lifecycleScope.launch {
                 présentateur.supprimerStageParId(stage.idStage!!)
+                //voirTousLesStages()
 
             }
         })
 
         recyclerView2.layoutManager = LinearLayoutManager(requireContext())
         recyclerView2.adapter = savedStagesAdapter
+        voirTousLesStages()
 
+        présentateur.afficherTousLesStagesDeBDLocal()
 
 
         setupOnBackPressedCallback()
@@ -86,7 +91,10 @@ class VueStagesSauvegardes : Fragment(), IstageEnregistréContrat.vue {
         savedStagesAdapter.updateData(listeStages)
     }
 
+    override fun voirTousLesStages() {
+        présentateur.afficherTousLesStagesDeBDLocal()
 
+    }
     override fun afficherDetails(stageId: Int) {
         présentateur.stageSelectionné(stageId)
     }

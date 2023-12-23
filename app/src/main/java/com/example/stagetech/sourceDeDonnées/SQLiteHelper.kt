@@ -10,7 +10,7 @@ class SQLiteHelper (context: Context) :
 
     companion object {
         private const val DATABASE_NAME = "stageTech"
-        private const val DATABASE_VERSION = 4
+        private const val DATABASE_VERSION = 5
 
     }
     object etudiants {
@@ -27,20 +27,6 @@ class SQLiteHelper (context: Context) :
         const val COLUMN_BULLETIN_SCOLAIRE = "bulletinScolaire"
         const val COLUMN_CV = "cv"
 
-//        CREATE TABLE étudiants (
-//        idÉtudiant INTEGER PRIMARY KEY AUTOINCREMENT,
-//        nom TEXT NOT NULL,
-//        prénom TEXT NOT NULL,
-//        motDePasse TEXT NOT NULL,
-//        description TEXT,
-//        courriel TEXT NOT NULL,
-//        adresse TEXT,
-//        collège TEXT,
-//        spécialité TEXT,
-//        disponibilité TEXT,
-//        bulletinScolaire TEXT,
-//        cv TEXT
-//        )
 
 
         const val CREATE_TABLE_ÉTUDIANT = """
@@ -89,41 +75,14 @@ class SQLiteHelper (context: Context) :
         )
     """
     }
-
-
-    object entreprises {
-        const val TABLE_NAME = "entreprises"
-        const val COLUMN_ID = "idEntreprise"
-        const val COLUMN_NOM = "nom"
-        const val COLUMN_DESCRIPTION = "description"
-        const val COLUMN_LOGO = "logo"
-        const val COLUMN_NOMBRE_EMPLOYERS = "nombreEmployers"
-        const val COLUMN_EMAIL_HR = "emailHr"
-        const val COLUMN_SITE_WEB = "siteWeb"
-        const val COLUMN_ADRESSE = "adresse"
-
-        const val CREATE_TABLE_ENTREPRISE = """
-        CREATE TABLE $TABLE_NAME (
-            $COLUMN_ID INTEGER PRIMARY KEY AUTOINCREMENT,
-            $COLUMN_NOM TEXT NOT NULL,
-            $COLUMN_DESCRIPTION TEXT NOT NULL,
-            $COLUMN_LOGO INTEGER,
-            $COLUMN_NOMBRE_EMPLOYERS INTEGER,
-            $COLUMN_EMAIL_HR TEXT NOT NULL,
-            $COLUMN_SITE_WEB TEXT,
-            $COLUMN_ADRESSE TEXT
-        )
-    """
-    }
     override fun onCreate(db: SQLiteDatabase?) {
         db?.execSQL(etudiants.CREATE_TABLE_ÉTUDIANT)
         db?.execSQL(stages.CREATE_TABLE_STAGE)
-        db?.execSQL(entreprises.CREATE_TABLE_ENTREPRISE)    }
+           }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
         db?.execSQL("DROP TABLE IF EXISTS ${etudiants.TABLE_NAME}")
         db?.execSQL("DROP TABLE IF EXISTS ${stages.TABLE_NAME}")
-        db?.execSQL("DROP TABLE IF EXISTS ${entreprises.TABLE_NAME}")
         onCreate(db)    }
 
 

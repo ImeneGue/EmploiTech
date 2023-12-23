@@ -37,7 +37,7 @@ class PageRechercheStageFragment : Fragment(), ITrouverStagePresentateur.vue {
     lateinit var navControlleur: NavController
     private lateinit var présentateur: ITrouverStagePresentateur.présentateur
     lateinit var dialog: Dialog
-    private lateinit var session: Session
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
